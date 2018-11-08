@@ -1,6 +1,7 @@
 class Tileset {
 
     constructor(name, nbX, nbY, blocksize, separation) {
+        this.id = 0;
         this.name = name;
         this.nbBlocks = {x: nbX, y: nbY};
         this.blocksize = blocksize;

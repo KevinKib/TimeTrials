@@ -29,6 +29,8 @@ class View_Level extends View {
     }
 
     draw() {
+        image(SpriteManager.background_sky, 0, 0);
+
         if (!this.spritesDefined) {
             this.createBGOs();
             this.createBlocks();

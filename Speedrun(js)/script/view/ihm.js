@@ -17,7 +17,6 @@ class IHM extends View {
     }
 
     draw() {
-        image(SpriteManager.background_sky, 0, 0);
         this.levelView.draw();
         this.playerView.draw();
     }

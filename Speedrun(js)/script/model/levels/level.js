@@ -1,3 +1,5 @@
+const LevelSerializer = require("./levelSerializer").LevelSerializer;
+
 class Level {
 
     constructor(name, tileset, bgoset) {
@@ -16,6 +18,9 @@ class Level {
 
         this.createBlocks();
         this.createBGOs();
+
+        this.serializer = new LevelSerializer(this);
+        //this.serializer.save();
     }
 
     createBlocks() {

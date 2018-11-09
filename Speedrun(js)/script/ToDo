@@ -1,17 +1,17 @@
 Vital
-- Vue du timer
+
+- Serialization de niveaux
 - Editeur de niveaux
     . Interface
-    . Serialization
 - Scrolling
     . horizontal
     . vertical
-- Entites
-    . Pieces
-
 
 Optionnel
 
+- Vue du timer
+- Entites
+    . Pieces
 
 
 Facultatif

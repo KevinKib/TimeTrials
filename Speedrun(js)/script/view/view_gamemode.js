@@ -1,6 +1,6 @@
 const View = require("./view").View;
 
-class View_Editor extends View {
+class View_GameMode extends View {
 
     constructor(model) {
         super(model);
@@ -12,4 +12,4 @@ class View_Editor extends View {
 
 }
 
-module.exports.View_Editor = View_Editor;
+module.exports.View_GameMode = View_GameMode;

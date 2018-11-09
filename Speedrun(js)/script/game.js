@@ -1,6 +1,5 @@
-const Player = require("./model/entities/player").Player;
-const Level_Test = require("./model/levels/level_test").Level_Test;
 const IHM = require("./view/ihm").IHM;
+const TimeTrial = require("./model/gamemodes/timetrial").TimeTrial;
 
 class Game {
 
@@ -8,18 +7,11 @@ class Game {
         this.framerate = 60;
         this.windowSize = {x:640, y:480};
 
-        this.player = new Player();
-        this.level = new Level_Test();
-        this.level.entityList.push(this.player);
-        this.levelList = new Array();
+        this.gamemode = new TimeTrial();
 
         // IHM has to be loaded last
         this.IHM = new IHM(this);
 
-    }
-
-    onEachFrame() {
-        this.level.loop();
     }
 
     // P5 main methods
@@ -34,7 +26,7 @@ class Game {
     }
 
     draw() {
-        this.onEachFrame();
+        this.gamemode.onEachFrame();
         this.IHM.draw();
     }
 

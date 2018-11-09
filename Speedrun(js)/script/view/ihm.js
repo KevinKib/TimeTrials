@@ -1,6 +1,5 @@
 const View = require("./view").View;
-const View_Entity = require("./view_entity").View_Entity;
-const View_Level = require("./view_level").View_Level;
+const View_TimeTrial = require("./view_timetrial").View_TimeTrial;
 const SpriteManager = require("./spritemanager").SpriteManager;
 
 
@@ -12,13 +11,11 @@ class IHM extends View {
     }
 
     createViews() {
-        this.playerView = new View_Entity(this.model.player);
-        this.levelView = new View_Level(this.model.level);
+        this.gamemodeView = new View_TimeTrial(this.model.gamemode);
     }
 
     draw() {
-        this.levelView.draw();
-        this.playerView.draw();
+        this.gamemodeView.draw();
     }
 
     preload() {

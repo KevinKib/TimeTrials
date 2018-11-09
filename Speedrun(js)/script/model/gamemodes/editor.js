@@ -1,7 +1,11 @@
-class Editor {
+const GameMode = require("./gamemode").GameMode;
+
+class Editor extends GameMode {
 
     constructor() {
-        this.currentBlockId = 0;
+        super();
+        this.currentBlock = 0;
+        this.currentTileset = 0;
     }
 
     input() {

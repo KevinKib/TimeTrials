@@ -9,7 +9,7 @@ class GameProperties {
     }
     
     static floatToGrid(x) {
-        return (x/this.blocksize())+1;
+        return Math.floor((x/this.blocksize())+1);
     }
 
 }

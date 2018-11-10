@@ -1,5 +1,6 @@
 const View = require("./view").View;
-const View_TimeTrial = require("./view_timetrial").View_TimeTrial;
+//const View_TimeTrial = require("./view_timetrial").View_TimeTrial;
+const View_Editor = require("./view_editor").View_Editor;
 const SpriteManager = require("./spritemanager").SpriteManager;
 
 
@@ -11,7 +12,7 @@ class IHM extends View {
     }
 
     createViews() {
-        this.gamemodeView = new View_TimeTrial(this.model.gamemode);
+        this.gamemodeView = new View_Editor(this.model.gamemode);
     }
 
     draw() {

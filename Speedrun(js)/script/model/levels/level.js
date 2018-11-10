@@ -40,11 +40,11 @@ class Level {
     }
 
     removeBlock(block) {
-        this.blockList.splice(block);
+        this.blockList.splice(this.blockList.indexOf(block), 1);
     }
 
     removeBGO(bgo) {
-        this.blockList.splice(bgo);
+        this.blockList.splice(this.blockList.indexOf(bgo), 1);
     }
 
 
@@ -56,8 +56,6 @@ class Level {
             self.applyFriction(entity);
             self.applyGravity(entity);
             entity.updatePosition();
-            
-            //self.failSafe(entity);
         });
     }
 

@@ -26,7 +26,9 @@ module.exports = {
         "mouseButton": false,
         "LEFT": false,
         "RIGHT": false,
-        "CENTER": false
+        "CENTER": false,
+        "mouseX": false,
+        "mouseY": false
     },
     "rules": {
         "indent": [

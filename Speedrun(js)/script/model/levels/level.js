@@ -39,6 +39,14 @@ class Level {
         this.bgoList.push(bgo);
     }
 
+    removeBlock(block) {
+        this.blockList.splice(block);
+    }
+
+    removeBGO(bgo) {
+        this.blockList.splice(bgo);
+    }
+
 
     loop() {
         let self = this;

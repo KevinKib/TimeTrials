@@ -1,0 +1,10 @@
+{
+ "id": 0,
+ "name": "Emptylevel",
+ "groundFriction": 0.8,
+ "airFriction": 0.97,
+ "gravity": 0.45,
+ "blockList": [],
+ "bgoList": [],
+ "entityList": []
+}

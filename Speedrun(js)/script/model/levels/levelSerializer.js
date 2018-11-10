@@ -7,6 +7,11 @@ class LevelSerializer {
     save() {
 
         const Level_Serializable =  {
+            id          : this.level.id,
+            name        : this.level.name,
+            groundFriction : this.level.groundFriction,
+            airFriction : this.level.airFriction,
+            gravity     : this.level.gravity,
             blockList   : this.level.blockList,
             bgoList     : this.level.bgoList,
             entityList  : this.level.entityList

@@ -7,8 +7,8 @@ class GameObject {
         this.tileset = tileset;
         this.size = {x: sizex, 
             y: sizey};
-        this.pos = {x: (posx-1)*GameProperties.blocksize(), 
-            y: (posy-1)*GameProperties.blocksize()};
+        this.pos = {x: GameProperties.gridToFloat(posx), 
+            y: GameProperties.gridToFloat(posy)};
 
 
         // Properties

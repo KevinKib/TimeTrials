@@ -1,4 +1,9 @@
 {
+ "id": 0,
+ "name": "Test level",
+ "groundFriction": 0.8,
+ "airFriction": 0.97,
+ "gravity": 0.45,
  "blockList": [
   {
    "id": 11,

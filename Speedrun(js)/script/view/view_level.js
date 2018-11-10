@@ -8,7 +8,6 @@ class View_Level extends View {
 
     constructor(model) {
         super(model);
-        this.spritesDefined = false;
         this.bgoViews = new Array();
         this.blockViews = new Array();
     }
@@ -31,15 +30,18 @@ class View_Level extends View {
         });
     }
 
+    // Clears and resets all the views, has to be optimised
     draw() {
         image(SpriteManager.background_sky, 0, 0);
 
-        this.spritesDefined = this.model.blockList.length == this.blockViews.length;
+        let blocksDefined = this.model.blockList.length == this.blockViews.length;
+        let bgosDefined = this.model.bgoList.length == this.bgoViews.length;
 
-        if (!this.spritesDefined) {
-            this.createBGOs();
+        if (!blocksDefined) {
             this.createBlocks();
-            this.spritesDefined = true;
+        }
+        if (!bgosDefined) {
+            this.createBGOs();
         }
         this.drawBGOs();
         this.drawBlocks();

@@ -15,13 +15,14 @@ class LevelSerializer {
         let save = JSON.stringify(Level_Serializable, null, " ");
 
         const fs = require("fs");
-        fs.writeFileSync("serial.json", save);
+        fs.writeFileSync("saves/"+this.level.name+".json", save);
 
     }
 
     load() {
+
         const fs = require("fs");
-        let load = fs.readFileSync("serial.json");
+        let load = fs.readFileSync("saves/"+this.level.name+".json");
 
         let level = JSON.parse(load);
         this.level.blockList = level.blockList;

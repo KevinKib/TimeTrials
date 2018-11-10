@@ -20,7 +20,7 @@ class Level {
         this.createBGOs();
 
         this.serializer = new LevelSerializer(this);
-        //this.serializer.save();
+        this.serializer.save();
     }
 
     createBlocks() {
@@ -120,13 +120,7 @@ class Level {
 
     }
 
-    failSafe(entity) {
-        if (entity.pos.y > 480-64) {
-            entity.speed.y = 0;
-            entity.pos.y = 480-64;
-            entity.onGround = true;
-        }
-    }
+    
 
     
 }

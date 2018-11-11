@@ -1,6 +1,7 @@
 const GameMode = require("../gamemode").GameMode;
 const GameProperties = require("../../../gameproperties").GameProperties;
 const Level_Empty = require("../../levels/level_empty").Level_Empty;
+//const Tileset_SMWBlue = require("../../tilesets/tileset_smwblue").Tileset_SMWBlue;
 //const Level_Test = require("../../levels/level_test").Level_Test;
 const Block = require("../../block").Block;
 //const BGO = require("../bgos/bgo").BGO;
@@ -10,34 +11,65 @@ class Editor extends GameMode {
     constructor() {
         super();
         this.level = new Level_Empty();
-        this.fakeObject = new Block(0, this.level.tileset,
-            GameProperties.floatToGrid(0), GameProperties.floatToGrid(0));
-        this.currentBlock = 2;
+        this.currentBlock = 1;
         this.currentTileset = this.level.tileset;
+        this.fakeObject = new Block(2, this.level.tileset, 0, 0);
+        this.keys = {
+            UP: 38,
+            DOWN: 40,
+            LEFT: 37,
+            RIGHT: 39
+        };
+        this.maxInputDelay = 10;
+        this.inputDelay = 0;
     }
 
     onEachFrame() {
+        this.fakeObject.id = this.currentBlock;
+        this.fakeObject.pos.x = (GameProperties.floatToGrid(mouseX)-1)*GameProperties.blocksize();
+        this.fakeObject.pos.y = (GameProperties.floatToGrid(mouseY)-1)*GameProperties.blocksize();
         this.input();
     }
 
     input() {
 
-        if (mouseIsPressed) {
+        if (this.inputDelay > 0) {
+            this.inputDelay--;
+        }
+        else {
+            if (mouseIsPressed) {
             
-            switch(mouseButton) {
-            
-            case LEFT:
-                this.place();
-                break;
-            case RIGHT:
-                this.suppress();
-                break;
-            case CENTER:
-                this.pick();
-                break;
+                switch(mouseButton) {
+                
+                case LEFT:
+                    this.place();
+                    this.resetInputDelay();
+                    break;
+                case RIGHT:
+                    this.suppress();
+                    this.resetInputDelay();
+                    break;
+                case CENTER:
+                    this.pick();
+                    this.resetInputDelay();
+                    break;
+                }
+            }
+    
+            if (keyIsDown(this.keys.UP)) {
+                this.indexUp();
+                this.resetInputDelay();
+            }
+            if (keyIsDown(this.keys.DOWN)) {
+                this.indexDown();
+                this.resetInputDelay();
             }
         }
 
+    }
+
+    resetInputDelay() {
+        this.inputDelay = this.maxInputDelay;
     }
 
     place() {
@@ -76,6 +108,14 @@ class Editor extends GameMode {
                 self.level.removeBlock(block);
             }
         });
+    }
+
+    indexUp() {
+        this.currentBlock++;
+    }
+
+    indexDown() {
+        this.currentBlock--;
     }
 
     exit() {

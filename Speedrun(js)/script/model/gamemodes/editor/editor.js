@@ -11,6 +11,7 @@ class Editor extends GameMode {
     constructor() {
         super();
         this.level = new Level_Empty();
+        this.level.name = "editor";
         this.currentBlock = 1;
         this.currentTileset = this.level.tileset;
         this.fakeObject = new Block(2, this.level.tileset, 0, 0);
@@ -18,7 +19,8 @@ class Editor extends GameMode {
             UP: 38,
             DOWN: 40,
             LEFT: 37,
-            RIGHT: 39
+            RIGHT: 39,
+            A: 65
         };
         this.maxInputDelay = 10;
         this.inputDelay = 0;
@@ -43,7 +45,6 @@ class Editor extends GameMode {
                 
                 case LEFT:
                     this.place();
-                    this.resetInputDelay();
                     break;
                 case RIGHT:
                     this.suppress();
@@ -63,6 +64,9 @@ class Editor extends GameMode {
             if (keyIsDown(this.keys.DOWN)) {
                 this.indexDown();
                 this.resetInputDelay();
+            }
+            if (keyIsDown(this.keys.A)) {
+                this.save();
             }
         }
 
@@ -123,7 +127,7 @@ class Editor extends GameMode {
     }
 
     save() {
-
+        this.level.serializer.save();
     }
 
     

@@ -1,13 +1,12 @@
 const Level = require("./level").Level;
 const Block = require("../block").Block;
 const BGO = require("../bgos/bgo").BGO;
-const Tileset_SMWBlue = require("../tilesets/tileset_smwblue").Tileset_SMWBlue;
-const BGOset_Grass = require("../tilesets/bgoset_grass").BGOset_Grass;
+const TilesetManager = require("../tilesets/tilesetmanager").TilesetManager;
 
 class Level_Test extends Level {
 
     constructor() {
-        super("Test level", new Tileset_SMWBlue(), new BGOset_Grass());
+        super("Test level", TilesetManager.getTileset("SMWBlue"), TilesetManager.getBGOset("Grass"));
     }
 
     createBlocks() {

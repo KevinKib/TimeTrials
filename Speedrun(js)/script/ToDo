@@ -1,17 +1,26 @@
 Vital
 
 X Serialization de niveaux
-- Editeur de niveaux
-    . Interface
-- Scrolling
-    . horizontal
-    . vertical
+X Editeur de niveaux
+    X Interface
+    - Placer BGOs
+~ Meilleure conception des tilesets
+- Classe niveau qui load un .json
+- Menus !!!
 
 Optionnel
-
+- Scrolling (LERP)
+    . horizontal
+    . vertical
 - Vue du timer
 - Entites
     . Pieces
-
+- Nouvelles mécaniques de jeu
 
 Facultatif
+
+
+soit:
+- tous les tilesets sont des singletons
+- les tilesets appartiennent a une classe gérant les tilesets
+  qui se chargera de les retourner/créer un à un

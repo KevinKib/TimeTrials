@@ -1,12 +1,11 @@
 const Level = require("./level").Level;
 const Level_Test = require("./level_test").Level_Test;
-const Tileset_SMWBlue = require("../tilesets/tileset_smwblue").Tileset_SMWBlue;
-const BGOset_Grass = require("../tilesets/bgoset_grass").BGOset_Grass;
+const TilesetManager = require("../tilesets/tilesetmanager").TilesetManager;
 
 class Level_Copy extends Level {
 
     constructor() {
-        super("Copy level", new Tileset_SMWBlue(), new BGOset_Grass());
+        super("Copy level", TilesetManager.getTileset("SMWBlue"), TilesetManager.getBGOset("Grass"));
 
         this.serializer.level = new Level_Test();
         this.serializer.load();

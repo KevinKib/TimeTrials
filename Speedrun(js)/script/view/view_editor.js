@@ -1,19 +1,15 @@
 const View = require("./view").View;
-const View_Tileset = require("./view_tileset").View_Tileset;
-const View_GameObject = require("./view_gameobject").View_GameObject;
-const SpriteManager = require("./spritemanager").SpriteManager;
 const View_Level = require("./view_level").View_Level;
+const View_Tileset = require("./view_tileset").View_Tileset;
+const SpriteManager = require("./spritemanager").SpriteManager;
+const View_GameObject = require("./view_gameobject").View_GameObject;
 
 class View_Editor extends View {
 
     constructor(model) {
         super(model);
-        
         this.levelView = new View_Level(this.model.level);
-
         this.defined = false;
-
-        
     }
 
     draw() {

@@ -1,6 +1,6 @@
 const View = require("./view").View;
-const View_Entity = require("./view_entity").View_Entity;
 const View_Level = require("./view_level").View_Level;
+const View_Entity = require("./view_entity").View_Entity;
 
 class View_TimeTrial extends View {
 

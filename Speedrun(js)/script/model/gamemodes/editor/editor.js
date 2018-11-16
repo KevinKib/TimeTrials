@@ -48,7 +48,6 @@ class Editor extends GameMode {
                     break;
                 case RIGHT:
                     this.suppress();
-                    this.resetInputDelay();
                     break;
                 case CENTER:
                     this.pick();

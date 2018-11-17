@@ -11,7 +11,7 @@ class TilesetViewManager {
         this.viewList.push(new View_Tileset(TilesetManager.getBGOset("Grass"), SpriteManager.bgoset_grass));
     }
 
-    static getView(name) {
+    static getTilesetView(name) {
         this.getInstance();
 
         let newTilesetView;
@@ -21,6 +21,18 @@ class TilesetViewManager {
             }
         });
         return newTilesetView;
+    }
+
+    static getBGOsetView(name) {
+        this.getInstance();
+
+        let newBGOsetView;
+        this.instance.viewList.forEach(function(BGOsetView) {
+            if (BGOsetView.model.name == name) {
+                newBGOsetView = BGOsetView;
+            }
+        });
+        return newBGOsetView;
     }
 
     static getInstance() {

@@ -1,7 +1,7 @@
 
 const View = require("./view").View;
-const View_Tileset = require("./view_tileset").View_Tileset;
 const View_GameObject = require("./view_gameobject").View_GameObject;
+const TilesetViewManager = require("./tilesetviewmanager").TilesetViewManager;
 const SpriteManager = require("./spritemanager").SpriteManager;
 
 class View_Level extends View {
@@ -13,7 +13,7 @@ class View_Level extends View {
     }
 
     createBGOs() {
-        let bgosetView = new View_Tileset(this.model.bgoset, SpriteManager.bgoset_grass);
+        let bgosetView = TilesetViewManager.getBGOsetView(this.model.bgoset.name);
         let self = this;
         this.bgoViews = [];
         this.model.bgoList.forEach(function(bgo) {
@@ -22,7 +22,7 @@ class View_Level extends View {
     }
 
     createBlocks() {
-        let tilesetView = new View_Tileset(this.model.tileset, SpriteManager.tileset_BlueGrass);
+        let tilesetView = TilesetViewManager.getTilesetView(this.model.tileset.name);
         let self = this;
         this.blockViews = [];
         this.model.blockList.forEach(function(block) {

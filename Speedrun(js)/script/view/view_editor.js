@@ -1,8 +1,7 @@
 const View = require("./view").View;
 const View_Level = require("./view_level").View_Level;
-const View_Tileset = require("./view_tileset").View_Tileset;
-const SpriteManager = require("./spritemanager").SpriteManager;
 const View_GameObject = require("./view_gameobject").View_GameObject;
+const TilesetViewManager = require("./tilesetviewmanager").TilesetViewManager;
 
 class View_Editor extends View {
 
@@ -14,7 +13,7 @@ class View_Editor extends View {
 
     draw() {
         if (!this.defined) {
-            let tilesetView = new View_Tileset(this.model.currentTileset, SpriteManager.tileset_BlueGrass);
+            let tilesetView = TilesetViewManager.getTilesetView(this.model.currentTileset.name);
             this.fakeObjectView = new View_GameObject(this.model.fakeObject, tilesetView);
             this.defined = true;
         }

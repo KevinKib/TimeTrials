@@ -12,9 +12,8 @@ class Editor extends GameMode {
         super();
         this.level = new Level_Empty();
         this.level.name = "editor";
-        this.currentBlock = 1;
         this.currentTileset = this.level.tileset;
-        this.fakeObject = new Block(2, this.level.tileset, 0, 0);
+        this.fakeObject = new Block(1, this.level.tileset, 0, 0);
         this.keys = {
             UP: 38,
             DOWN: 40,
@@ -27,7 +26,6 @@ class Editor extends GameMode {
     }
 
     onEachFrame() {
-        this.fakeObject.id = this.currentBlock;
         this.fakeObject.pos.x = (GameProperties.floatToGrid(mouseX)-1)*GameProperties.blocksize();
         this.fakeObject.pos.y = (GameProperties.floatToGrid(mouseY)-1)*GameProperties.blocksize();
         this.input();
@@ -52,7 +50,7 @@ class Editor extends GameMode {
                 case CENTER:
                     this.pick();
                     break;
-                    
+
                 }
             }
     
@@ -86,7 +84,7 @@ class Editor extends GameMode {
         });
 
         if (canPlace) {
-            this.level.addBlock(new Block(this.currentBlock, this.currentTileset,
+            this.level.addBlock(new Block(this.fakeObject.id, this.currentTileset,
                 GameProperties.floatToGrid(mouseX), GameProperties.floatToGrid(mouseY)));
         }
         
@@ -97,7 +95,7 @@ class Editor extends GameMode {
         this.level.blockList.forEach(function(block) {
             if (GameProperties.floatToGrid(block.pos.x) == GameProperties.floatToGrid(mouseX)
             && GameProperties.floatToGrid(block.pos.y) == GameProperties.floatToGrid(mouseY)) {
-                self.currentBlock = block.id;
+                self.fakeObject.id = block.id;
             }
         });
     }
@@ -115,11 +113,11 @@ class Editor extends GameMode {
     }
 
     indexUp() {
-        this.currentBlock++;
+        this.fakeObject.id++;
     }
 
     indexDown() {
-        this.currentBlock--;
+        this.fakeObject.id--;
     }
 
     exit() {

@@ -51,8 +51,8 @@ class Editor extends GameMode {
                     break;
                 case CENTER:
                     this.pick();
-                    this.resetInputDelay();
                     break;
+                    
                 }
             }
     
@@ -93,10 +93,11 @@ class Editor extends GameMode {
     }
     
     pick() {
+        let self = this;
         this.level.blockList.forEach(function(block) {
             if (GameProperties.floatToGrid(block.pos.x) == GameProperties.floatToGrid(mouseX)
             && GameProperties.floatToGrid(block.pos.y) == GameProperties.floatToGrid(mouseY)) {
-                this.currentBlock = block.id;
+                self.currentBlock = block.id;
             }
         });
     }

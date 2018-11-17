@@ -124,6 +124,10 @@ class Editor extends GameMode {
 
     }
 
+    switchGameObjectType() {
+        
+    }
+
     save() {
         this.level.serializer.save();
     }

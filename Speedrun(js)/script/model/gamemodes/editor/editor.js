@@ -1,10 +1,8 @@
 const GameMode = require("../gamemode").GameMode;
 const GameProperties = require("../../../gameproperties").GameProperties;
 const Level_Empty = require("../../levels/level_empty").Level_Empty;
-//const Tileset_SMWBlue = require("../../tilesets/tileset_smwblue").Tileset_SMWBlue;
-//const Level_Test = require("../../levels/level_test").Level_Test;
+
 const Block = require("../../block").Block;
-//const BGO = require("../bgos/bgo").BGO;
 
 class Editor extends GameMode {
 

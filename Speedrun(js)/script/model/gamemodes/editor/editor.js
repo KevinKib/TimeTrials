@@ -1,7 +1,7 @@
 const GameMode = require("../gamemode").GameMode;
 const GameProperties = require("../../../gameproperties").GameProperties;
 const Level_Empty = require("../../levels/level_empty").Level_Empty;
-
+const PlacerBlock = require("./placerblock").PlacerBlock;
 const Block = require("../../block").Block;
 
 class Editor extends GameMode {
@@ -21,6 +21,7 @@ class Editor extends GameMode {
         };
         this.maxInputDelay = 10;
         this.inputDelay = 0;
+        this.placer = new PlacerBlock(this);
     }
 
     onEachFrame() {
@@ -72,42 +73,15 @@ class Editor extends GameMode {
     }
 
     place() {
-        let canPlace = true;
-
-        this.level.blockList.forEach(function(block) {
-            if (GameProperties.floatToGrid(block.pos.x) == GameProperties.floatToGrid(mouseX)
-            && GameProperties.floatToGrid(block.pos.y) == GameProperties.floatToGrid(mouseY)) {
-                canPlace = false;
-            }
-        });
-
-        if (canPlace) {
-            this.level.addBlock(new Block(this.fakeObject.id, this.currentTileset,
-                GameProperties.floatToGrid(mouseX), GameProperties.floatToGrid(mouseY)));
-        }
-        
+        this.placer.place();
     }
     
     pick() {
-        let self = this;
-        this.level.blockList.forEach(function(block) {
-            if (GameProperties.floatToGrid(block.pos.x) == GameProperties.floatToGrid(mouseX)
-            && GameProperties.floatToGrid(block.pos.y) == GameProperties.floatToGrid(mouseY)) {
-                self.fakeObject.id = block.id;
-            }
-        });
+        this.placer.pick();
     }
 
     suppress() {
-        let self = this;
-
-        this.level.blockList.forEach(function(block) {
-            
-            if (GameProperties.floatToGrid(block.pos.x) === GameProperties.floatToGrid(mouseX)
-            && GameProperties.floatToGrid(block.pos.y) === GameProperties.floatToGrid(mouseY)) {
-                self.level.removeBlock(block);
-            }
-        });
+        this.placer.suppress();
     }
 
     indexUp() {

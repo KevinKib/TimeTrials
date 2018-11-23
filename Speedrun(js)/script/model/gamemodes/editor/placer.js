@@ -16,6 +16,10 @@ class Placer {
         
     }
 
+    next() {
+
+    }
+
 }
 
 module.exports.Placer = Placer;

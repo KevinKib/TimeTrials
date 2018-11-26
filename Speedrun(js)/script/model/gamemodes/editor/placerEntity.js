@@ -1,5 +1,5 @@
 const Placer = require("./placer").Placer;
-const PlacerBlock = require("./placerblock").PlacerBlock;
+
 //const GameProperties = require("../../../gameproperties").GameProperties;
 //const BGO = require("../../bgo").BGO;
 
@@ -22,7 +22,7 @@ class PlacerEntity extends Placer {
     }
 
     next() {
-        return new PlacerBlock(this.editor);
+        return this.editor.factory_block();
     }
 
 }

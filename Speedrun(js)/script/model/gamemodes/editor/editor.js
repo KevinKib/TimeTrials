@@ -2,6 +2,8 @@ const GameMode = require("../gamemode").GameMode;
 const GameProperties = require("../../../gameproperties").GameProperties;
 const Level_Empty = require("../../levels/level_empty").Level_Empty;
 const PlacerBlock = require("./placerblock").PlacerBlock;
+const PlacerBGO = require("./placerBGO").PlacerBGO;
+const PlacerEntity = require("./placerEntity").PlacerEntity;
 const Block = require("../../block").Block;
 
 class Editor extends GameMode {
@@ -17,7 +19,8 @@ class Editor extends GameMode {
             DOWN: 40,
             LEFT: 37,
             RIGHT: 39,
-            A: 65
+            A: 65,
+            B: 66
         };
         this.maxInputDelay = 10;
         this.inputDelay = 0;
@@ -63,6 +66,11 @@ class Editor extends GameMode {
             }
             if (keyIsDown(this.keys.A)) {
                 this.save();
+                this.resetInputDelay();
+            }
+            if (keyIsDown(this.keys.B)) {
+                this.next();
+                this.resetInputDelay();
             }
         }
 
@@ -91,6 +99,23 @@ class Editor extends GameMode {
     indexDown() {
         this.fakeObject.id--;
     }
+    
+    next() {
+        this.placer = this.placer.next();
+    }
+
+    factory_block() {
+        return new PlacerBlock(this);
+    }
+
+    factory_bgo() {
+        return new PlacerBGO(this);
+    }
+
+    factory_entity() {
+        return new PlacerEntity(this);
+    }
+
 
     exit() {
 

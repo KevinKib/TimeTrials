@@ -104,18 +104,6 @@ class Editor extends GameMode {
         this.placer = this.placer.next();
     }
 
-    factory_block() {
-        return new PlacerBlock(this);
-    }
-
-    factory_bgo() {
-        return new PlacerBGO(this);
-    }
-
-    factory_entity() {
-        return new PlacerEntity(this);
-    }
-
 
     exit() {
 
@@ -127,6 +115,22 @@ class Editor extends GameMode {
 
     save() {
         this.level.serializer.save();
+    }
+
+    // Factory that's used so placer classes do not know themselves,
+    // which prevents circular references.
+    // A factory class should be created in order to clean this code.
+
+    factory_block() {
+        return new PlacerBlock(this);
+    }
+
+    factory_bgo() {
+        return new PlacerBGO(this);
+    }
+
+    factory_entity() {
+        return new PlacerEntity(this);
     }
 
     

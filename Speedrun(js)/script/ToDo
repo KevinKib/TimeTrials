@@ -8,13 +8,16 @@ X Editeur de niveaux
 X Meilleure conception des tilesets
 X Classe niveau qui load un .json
 - Menus !!!
+    - Boutons pressables
+    - Réorganisation du code
+- Changer le nom du niveau a la sauvegarde (edition classique de fichiers)
 - Editeur qui peut changer la position de départ
-
-Optionnel
 - Scrolling (LERP)
     . horizontal
     . vertical
 - Vue du timer
+
+Optionnel
 - Entites
     . Pieces
 - Nouvelles mécaniques de jeu

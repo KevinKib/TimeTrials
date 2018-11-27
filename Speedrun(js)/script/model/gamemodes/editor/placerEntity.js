@@ -21,8 +21,12 @@ class PlacerEntity extends Placer {
         
     }
 
+    getType() {
+        return "PlacerEntity";
+    }
+
     next() {
-        return this.editor.factory_block();
+        return this.editor.factory.create("PlacerBlock");
     }
 
 }

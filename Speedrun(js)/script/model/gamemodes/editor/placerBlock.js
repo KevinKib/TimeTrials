@@ -6,6 +6,7 @@ class PlacerBlock extends Placer {
 
     constructor(editor) {
         super(editor);
+        this.editor.fakeObject = new Block(1, this.editor.level.tileset, 0, 0);
     }
 
     place() {
@@ -46,8 +47,12 @@ class PlacerBlock extends Placer {
         });
     }
 
+    getType() {
+        return "PlacerBlock";
+    }
+
     next() {
-        return this.editor.factory_bgo();
+        return this.editor.factory.create("PlacerBGO");
     }
 
 }

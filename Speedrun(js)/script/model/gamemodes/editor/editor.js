@@ -1,10 +1,8 @@
 const GameMode = require("../gamemode").GameMode;
 const GameProperties = require("../../../gameproperties").GameProperties;
 const Level_Empty = require("../../levels/level_empty").Level_Empty;
-const PlacerBlock = require("./placerblock").PlacerBlock;
-const PlacerBGO = require("./placerBGO").PlacerBGO;
-const PlacerEntity = require("./placerEntity").PlacerEntity;
-const Block = require("../../block").Block;
+const PlacerFactory = require("./placerfactory").PlacerFactory;
+
 
 class Editor extends GameMode {
 
@@ -13,7 +11,8 @@ class Editor extends GameMode {
         this.level = new Level_Empty();
         this.level.name = "editor";
         this.currentTileset = this.level.tileset;
-        this.fakeObject = new Block(1, this.level.tileset, 0, 0);
+        this.currentBGOset = this.level.bgoset;
+        // this.fakeObject
         this.keys = {
             UP: 38,
             DOWN: 40,
@@ -24,7 +23,9 @@ class Editor extends GameMode {
         };
         this.maxInputDelay = 10;
         this.inputDelay = 0;
-        this.placer = new PlacerBlock(this);
+
+        this.factory = new PlacerFactory(this);
+        this.placer = this.factory.create("PlacerBlock");
     }
 
     onEachFrame() {
@@ -115,22 +116,6 @@ class Editor extends GameMode {
 
     save() {
         this.level.serializer.save();
-    }
-
-    // Factory that's used so placer classes do not know themselves,
-    // which prevents circular references.
-    // A factory class should be created in order to clean this code.
-
-    factory_block() {
-        return new PlacerBlock(this);
-    }
-
-    factory_bgo() {
-        return new PlacerBGO(this);
-    }
-
-    factory_entity() {
-        return new PlacerEntity(this);
     }
 
     

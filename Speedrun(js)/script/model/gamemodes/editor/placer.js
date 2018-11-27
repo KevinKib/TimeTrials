@@ -16,6 +16,10 @@ class Placer {
         
     }
 
+    getType() {
+        
+    }
+
     next() {
 
     }

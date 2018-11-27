@@ -84,6 +84,7 @@ class Entity {
         this.pos.x += this.speed.x;
         this.pos.y += this.speed.y;
     }
+
 }
 
 module.exports.Entity = Entity;

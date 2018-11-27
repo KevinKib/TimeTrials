@@ -7,6 +7,7 @@ class PlacerBGO extends Placer {
 
     constructor(editor) {
         super(editor);
+        this.editor.fakeObject = new BGO(1, this.editor.level.bgoset, 0, 0);
     }
 
     place() {
@@ -20,7 +21,7 @@ class PlacerBGO extends Placer {
         });
 
         if (canPlace) {
-            this.editor.level.addBlock(new BGO(this.editor.fakeObject.id, this.editor.currentBGOset,
+            this.editor.level.addBGO(new BGO(this.editor.fakeObject.id, this.editor.currentBGOset,
                 GameProperties.floatToGrid(mouseX), GameProperties.floatToGrid(mouseY)));
         }
     }
@@ -42,7 +43,7 @@ class PlacerBGO extends Placer {
             
             if (GameProperties.floatToGrid(bgo.pos.x) === GameProperties.floatToGrid(mouseX)
             && GameProperties.floatToGrid(bgo.pos.y) === GameProperties.floatToGrid(mouseY)) {
-                self.editor.level.removeBlock(bgo);
+                self.editor.level.removeBGO(bgo);
             }
         });
     }

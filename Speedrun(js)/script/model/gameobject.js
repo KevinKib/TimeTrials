@@ -23,6 +23,10 @@ class GameObject {
         return obj;
     }
 
+    getType() {
+        
+    }
+
 }
 
 module.exports.GameObject = GameObject;

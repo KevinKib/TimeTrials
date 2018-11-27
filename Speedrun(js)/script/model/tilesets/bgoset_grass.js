@@ -3,7 +3,7 @@ const Tileset = require("./tileset").Tileset;
 class BGOset_Grass extends Tileset {
 
     constructor() {
-        super(2, "Grass", 7, 1, 32, 1);
+        super(2, "Grass", 7, 1, 32, 2);
     }
 
 }

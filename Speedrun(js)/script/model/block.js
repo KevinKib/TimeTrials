@@ -9,6 +9,10 @@ class Block extends GameObject {
         this.collision = true;
     }
     
+    getType() {
+        return "Block";
+    }
+
     // Might need to override CreateFloat();
 
 }

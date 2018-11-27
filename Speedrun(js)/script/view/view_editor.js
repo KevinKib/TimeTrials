@@ -14,6 +14,7 @@ class View_Editor extends View {
     draw() {
         if (!this.defined) {
             let tilesetView = TilesetViewManager.getTilesetView(this.model.currentTileset.name);
+            //let bgosetView = TilesetViewManager.getBGOsetView(this.model.currentBGOset.name);
             this.fakeObjectView = new View_GameObject(this.model.fakeObject, tilesetView);
             this.defined = true;
         }

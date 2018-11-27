@@ -44,7 +44,7 @@ class Level {
     }
 
     removeBGO(bgo) {
-        this.blockList.splice(this.blockList.indexOf(bgo), 1);
+        this.bgoList.splice(this.bgoList.indexOf(bgo), 1);
     }
 
 

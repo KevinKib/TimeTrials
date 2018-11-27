@@ -3,8 +3,9 @@ Vital
 X Serialization de niveaux
 X Editeur de niveaux
     X Interface
-    - Placer BGOs
-~ Meilleure conception des tilesets
+    X Placer BGOs
+    - regarder le fonctionnement du fakeobject
+X Meilleure conception des tilesets
 - Classe niveau qui load un .json
 - Menus !!!
 
@@ -19,6 +20,6 @@ Optionnel
 
 
 Cleaning code:
-- Faire une classe factory
+X Faire une classe factory
 
 Facultatif

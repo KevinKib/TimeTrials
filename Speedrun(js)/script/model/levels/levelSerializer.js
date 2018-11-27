@@ -24,12 +24,25 @@ class LevelSerializer {
 
     }
 
-    load() {
+    load(address) {
 
         const fs = require("fs");
-        let load = fs.readFileSync("saves/"+this.level.name+".json");
 
+        let load;
+        if (typeof(address) != undefined) {
+            load = fs.readFileSync("saves/"+address+".json");
+        }
+        else {
+            load = fs.readFileSync("saves/"+this.level.name+".json");
+        }
+ 
         let level = JSON.parse(load);
+
+        this.level.id = level.id;
+        this.level.name = level.name;
+        this.level.groundFriction = level.groundFriction;
+        this.level.airFriction = level.airFriction;
+        this.level.gravity = level.gravity;
         this.level.blockList = level.blockList;
         this.level.bgoList = level.bgoList;
         this.level.entityList = level.entityList;

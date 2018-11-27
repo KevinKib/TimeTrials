@@ -1,6 +1,6 @@
 const IHM = require("./view/ihm").IHM;
-//const TimeTrial = require("./model/gamemodes/timetrial").TimeTrial;
-const Editor = require("./model/gamemodes/editor/editor").Editor;
+const TimeTrial = require("./model/gamemodes/timetrial").TimeTrial;
+//const Editor = require("./model/gamemodes/editor/editor").Editor;
 
 class Game {
 
@@ -8,7 +8,7 @@ class Game {
         this.framerate = 60;
         this.windowSize = {x:640, y:480};
 
-        this.gamemode = new Editor();
+        this.gamemode = new TimeTrial();
 
         // IHM has to be loaded last
         this.IHM = new IHM(this);

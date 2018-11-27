@@ -4,10 +4,11 @@ X Serialization de niveaux
 X Editeur de niveaux
     X Interface
     X Placer BGOs
-    - regarder le fonctionnement du fakeobject
+    - Améliorer conception du fakeObject
 X Meilleure conception des tilesets
-- Classe niveau qui load un .json
+X Classe niveau qui load un .json
 - Menus !!!
+- Editeur qui peut changer la position de départ
 
 Optionnel
 - Scrolling (LERP)

@@ -28,7 +28,8 @@ module.exports = {
         "RIGHT": false,
         "CENTER": false,
         "mouseX": false,
-        "mouseY": false
+        "mouseY": false,
+        "createButton": false
     },
     "rules": {
         "indent": [

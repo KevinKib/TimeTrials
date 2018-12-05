@@ -24,6 +24,8 @@ function createWindow() {
   mainWindow.on('closed', () => {
     mainWindow = null;
   })
+
+  electron.Menu.setApplicationMenu(null);
 }
 
 app.on('ready', createWindow);

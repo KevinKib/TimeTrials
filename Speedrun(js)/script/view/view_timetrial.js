@@ -8,11 +8,21 @@ class View_TimeTrial extends View {
         super(model);
         this.playerView = new View_Entity(this.model.player);
         this.levelView = new View_Level(this.model.level);
+
+        this.componentsCreated = false;
     }
 
     draw() {
         this.levelView.draw();
         this.playerView.draw();
+
+        if (!this.componentsCreated) {
+            this.button = createButton("submit");
+            this.button.position(30, 65);
+            this.componentsCreated = true;
+        }
+        
+
     }
 
 }

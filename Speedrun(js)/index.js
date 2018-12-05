@@ -25,6 +25,7 @@ function createWindow() {
     mainWindow = null;
   })
 
+  // A activer lors de la distribution du projet !
   //electron.Menu.setApplicationMenu(null);
 }
 

@@ -34,3 +34,8 @@ body {
     border-radius: 4px;
     */
 }
+
+.menu_button {
+    font-size: 30px;
+    width: 300px;
+}

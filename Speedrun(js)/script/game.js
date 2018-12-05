@@ -1,6 +1,7 @@
 const IHM = require("./view/ihm").IHM;
 const TimeTrial = require("./model/gamemodes/timetrial").TimeTrial;
-//const Editor = require("./model/gamemodes/editor/editor").Editor;
+const Menu = require("./model/gamemodes/menu").Menu;
+const Editor = require("./model/gamemodes/editor").Editor;
 
 class Game {
 
@@ -8,11 +9,28 @@ class Game {
         this.framerate = 60;
         this.windowSize = {x:640, y:480};
 
-        this.gamemode = new TimeTrial();
+        this.gamemode = new Menu(this);
 
         // IHM has to be loaded last
         this.IHM = new IHM(this);
 
+    }
+
+    setGamemode(name) {
+        switch(name) {
+
+        case "Menu":
+            this.gamemode = new Menu(this);
+            break;
+        case "TimeTrial":
+            this.gamemode = new TimeTrial();
+            break;
+        case "Editor":
+            this.gamemode = new Editor();
+            break;
+        }
+
+        this.IHM.setGamemode(name);
     }
 
     // P5 main methods

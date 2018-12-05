@@ -1,7 +1,7 @@
-const GameMode = require("../gamemode").GameMode;
-const GameProperties = require("../../../gameproperties").GameProperties;
-const Level_Empty = require("../../levels/level_empty").Level_Empty;
-const PlacerFactory = require("./placerfactory").PlacerFactory;
+const GameMode = require("./gamemode").GameMode;
+const GameProperties = require("../../gameproperties").GameProperties;
+const Level_Empty = require("../levels/level_empty").Level_Empty;
+const PlacerFactory = require("./editor/placerfactory").PlacerFactory;
 
 
 class Editor extends GameMode {
@@ -12,7 +12,7 @@ class Editor extends GameMode {
         this.level.name = "editor";
         this.currentTileset = this.level.tileset;
         this.currentBGOset = this.level.bgoset;
-        // this.fakeObject
+
         this.keys = {
             UP: 38,
             DOWN: 40,

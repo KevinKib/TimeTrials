@@ -7,9 +7,6 @@ class Menu_Button extends View {
     constructor(model, menuView) {
         super(model);
         this.menuView = menuView;
-
-        // Called so we don't lose sight of the object when calling mousePressed()
-        self = this;
     }
 
     create(name, y, color) {
@@ -23,12 +20,6 @@ class Menu_Button extends View {
 
     remove() {
         this.__component.remove();
-    }
-
-    onAction() {
-        console.log(self.menuView);
-        self.menuView.removeAll();
-        self.model.onAction();
     }
 
     draw() {

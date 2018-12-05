@@ -11,8 +11,8 @@ class Menu extends GameMode {
 
     }
 
-    toInstance() {
-        this.game.setGamemode("TimeTrial");
+    toInstance(name) {
+        this.game.setGamemode(name);
     }
 
     onEachFrame() {

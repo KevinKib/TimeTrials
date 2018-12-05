@@ -18,7 +18,8 @@ class View_TimeTrial extends View {
 
         if (!this.componentsCreated) {
             this.button = createButton("submit");
-            this.button.position(30, 65);
+            this.button.class("btn btn-primary");
+            this.button.position(0, 0);
             this.componentsCreated = true;
         }
         

@@ -39,3 +39,14 @@ body {
     font-size: 30px;
     width: 300px;
 }
+
+.editor_button {
+    font-size: 12px;
+    width: 100px;
+}
+
+.editor_input {
+    width: 200px;
+    height: 20px;
+    font-size: 12px;
+}

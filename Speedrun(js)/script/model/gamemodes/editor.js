@@ -3,6 +3,8 @@ const GameProperties = require("../../gameproperties").GameProperties;
 const Level_Empty = require("../levels/level_empty").Level_Empty;
 const PlacerFactory = require("./editor/placerfactory").PlacerFactory;
 
+const Button_Save = require("./editor/button_save").Button_Save;
+
 
 class Editor extends GameMode {
 
@@ -26,6 +28,8 @@ class Editor extends GameMode {
 
         this.factory = new PlacerFactory(this);
         this.placer = this.factory.create("PlacerBlock");
+
+        this.saveButton = new Button_Save(this);
     }
 
     onEachFrame() {
@@ -63,10 +67,6 @@ class Editor extends GameMode {
             }
             if (keyIsDown(this.keys.DOWN)) {
                 this.indexDown();
-                this.resetInputDelay();
-            }
-            if (keyIsDown(this.keys.A)) {
-                this.save();
                 this.resetInputDelay();
             }
             if (keyIsDown(this.keys.B)) {

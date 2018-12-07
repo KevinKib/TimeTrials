@@ -2,7 +2,7 @@ const View = require("./view").View;
 const View_Level = require("./view_level").View_Level;
 const View_Entity = require("./view_entity").View_Entity;
 
-const Menu_Button = require("./menu/menu_button").Menu_Button;
+const Component_Button = require("./component_button").Component_Button;
 
 class View_TimeTrial extends View {
 
@@ -19,7 +19,7 @@ class View_TimeTrial extends View {
         this.playerView.draw();
 
         if (!this.componentsCreated) {
-            this.button = new Menu_Button("Exit", 0, 0);
+            this.button = new Component_Button("Exit", 0, 0);
             this.componentsCreated = true;
         }
 

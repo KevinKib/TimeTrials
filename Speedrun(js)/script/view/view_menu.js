@@ -1,15 +1,17 @@
 const View = require("./view").View;
 
-const Menu_Button = require("./menu/menu_button").Menu_Button;
-const Menu_Button_Play = require("./menu/menu_button_play").Menu_Button_Play;
-const Menu_Button_Editor = require("./menu/menu_button_editor").Menu_Button_Editor;
+const Component_Button = require("./component_button").Component_Button;
 const Menu_Title = require("./menu/menu_title").Menu_Title;
+
+let self;
 
 class View_menu extends View {
 
     constructor(model) {
         super(model);
         this.components = false;
+
+        self = this;
     }
 
     draw() {
@@ -17,13 +19,35 @@ class View_menu extends View {
         if (!this.components) {
             this.title = new Menu_Title();
             this.title.create("TimeTrials", 90);
-            this.play = new Menu_Button_Play(this.model.play, this);
-            this.play.create("Play", 210, "blue");
-            this.editor = new Menu_Button_Editor(this.model.editor, this);
-            this.editor.create("Create", 310, "red");
-            this.components = true;
-        }
 
+            // Play button
+            this.play = createButton("Play");
+            this.play.class("btn btn-primary menu_button");
+            this.play.position(0, 210);
+            this.play.center("horizontal");
+            this.play.mousePressed(this.action_play);
+
+            // Create button
+            this.editor = createButton("Create");
+            this.editor.class("btn btn-primary menu_button");
+            this.editor.position(0, 310);
+            this.editor.center("horizontal");
+            this.editor.mousePressed(this.action_create);
+
+            this.components = true;
+            console.log(this);
+        }
+    }
+
+    action_play() {
+        console.log(self);
+        self.model.toInstance("TimeTrial");
+        self.removeAll();
+    }
+
+    action_create() {
+        self.model.toInstance("Editor");
+        self.removeAll();
     }
 
     removeAll() {
@@ -34,5 +58,7 @@ class View_menu extends View {
     }
 
 }
+
+
 
 module.exports.View_menu = View_menu;

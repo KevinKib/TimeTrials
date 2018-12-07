@@ -10,7 +10,6 @@ X Classe niveau qui load un .json
 X Menus !!!
     X Boutons pressables
     - Réorganisation du code
-    - Design du menu
 - Changer le nom du niveau a la sauvegarde (edition classique de fichiers)
 - Editeur qui peut changer la position de départ
 - Empecher le premier input de l'editeur au clic du menu
@@ -20,6 +19,7 @@ X Menus !!!
 - Vue du timer
 
 Optionnel
+- Design du menu
 - Entites
     . Pieces
 - Nouvelles mécaniques de jeu

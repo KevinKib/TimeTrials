@@ -1,18 +1,19 @@
-const View = require("../view").View;
+const View = require("./view").View;
 
 let self;
 
-class Menu_Button extends View {
+class Component_Button extends View {
 
-    constructor(model, menuView) {
+    constructor(model, menuView, css) {
         super(model);
         this.menuView = menuView;
+        this.css = css;
     }
 
-    create(name, y, color) {
+    create(name, y) {
 
         this.__component = createButton(name);
-        this.__component.class("btn btn-primary menu_button");
+        this.__component.class("btn btn-primary "+this.css);
         this.__component.position(0, y);
         this.__component.center("horizontal");
         this.__component.mousePressed(this.onAction);
@@ -28,4 +29,4 @@ class Menu_Button extends View {
 
 }
 
-module.exports.Menu_Button = Menu_Button;
+module.exports.Component_Button = Component_Button;

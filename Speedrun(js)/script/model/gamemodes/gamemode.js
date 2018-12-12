@@ -1,7 +1,7 @@
 class GameMode {
 
-    constructor() {
-
+    constructor(game) {
+        this.game = game;
     }
 
     onEachFrame() {

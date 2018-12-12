@@ -6,8 +6,8 @@ const Level_Json = require("../levels/level_json").Level_Json;
 
 class TimeTrial extends GameMode {
 
-    constructor() {
-        super();
+    constructor(game) {
+        super(game);
         this.player = new Player();
         this.level = new Level_Json("editor_1");
         this.level.entityList.push(this.player);
@@ -16,6 +16,10 @@ class TimeTrial extends GameMode {
 
     onEachFrame() {
         this.level.loop();
+    }
+    
+    back() {
+        this.game.setGamemode("Menu");
     }
 
 }

@@ -8,8 +8,8 @@ const Button_Save = require("./editor/button_save").Button_Save;
 
 class Editor extends GameMode {
 
-    constructor() {
-        super();
+    constructor(game) {
+        super(game);
         this.level = new Level_Empty();
         this.level.name = "editor";
         this.currentTileset = this.level.tileset;

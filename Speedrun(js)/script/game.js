@@ -23,10 +23,10 @@ class Game {
             this.gamemode = new Menu(this);
             break;
         case "TimeTrial":
-            this.gamemode = new TimeTrial();
+            this.gamemode = new TimeTrial(this);
             break;
         case "Editor":
-            this.gamemode = new Editor();
+            this.gamemode = new Editor(this);
             break;
         }
 
